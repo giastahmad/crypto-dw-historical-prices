@@ -1,5 +1,5 @@
 CREATE TABLE dimensi_waktu (
-    date_id INT PRIMARY KEY NOT NULL,
+    date_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     [date] DATE NOT NULL,
     [day] TINYINT NULL,
     [month] TINYINT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE dimensi_waktu (
 GO
 
 CREATE TABLE dimensi_bursa (
-    exchange_id INT PRIMARY KEY NOT NULL,
+    exchange_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     [name] NVARCHAR(100) NOT NULL,
     [type] NVARCHAR(50) NULL,
     country_of_origin NVARCHAR(100) NULL
@@ -18,7 +18,7 @@ CREATE TABLE dimensi_bursa (
 GO
 
 CREATE TABLE dimensi_cryptocurrency (
-    crypto_id INT PRIMARY KEY NOT NULL,
+    crypto_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     [name] NVARCHAR(100) NOT NULL,
     symbol NVARCHAR(20) NULL,
     category NVARCHAR(100) NULL,
@@ -28,14 +28,14 @@ CREATE TABLE dimensi_cryptocurrency (
 GO
 
 CREATE TABLE dimensi_sentimen_pasar (
-    sentiment_id INT PRIMARY KEY NOT NULL,
+    sentiment_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     sentiment NVARCHAR(50) NULL,
     type_source NVARCHAR(100) NULL
 );
 GO
 
 CREATE TABLE dimensi_indikator_teknikal (
-    indicator_id INT PRIMARY KEY NOT NULL,
+    indicator_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     rsi_category NVARCHAR(50) NULL,
     price_vs_ma7d NVARCHAR(50) NULL
 );
@@ -46,7 +46,7 @@ GO
 -- =============================================
 
 CREATE TABLE fact_table (
-    fact_id BIGINT PRIMARY KEY NOT NULL,
+    fact_id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     date_id INT NULL,
     crypto_id INT NULL,
     exchange_id INT NULL,
