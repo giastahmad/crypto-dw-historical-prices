@@ -3,7 +3,7 @@
 **Tujuan:** Alur kerja ini bertanggung jawab untuk memuat anggota dimensi (dimension members) yang baru untuk `dimensi_sentimen_pasar`. Proses ini membaca data sentimen dari file sumber, memeriksa apakah kombinasi sentimen dan sumbernya sudah ada di dalam tabel dimensi, dan jika **belum ada**, maka akan memasukkannya sebagai baris data baru.
 
 **Screenshot Alur Kerja:**
-![Alur Kerja untuk Dimensi Sentimen Pasar](img/sentimen-pasar-flow-task.png)
+![Alur Kerja untuk Dimensi Sentimen Pasar](img/sentimen-flow-task.png)
 
 ---
 
