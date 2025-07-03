@@ -9,24 +9,19 @@
 
 **Rincian Proses:**
 
-Berikut adalah penjelasan untuk setiap komponen dalam alur kerja di atas:
-
 #### 1. Waktu (Flat File Source)
 Proses dimulai dengan membaca data kalender yang sudah disiapkan sebelumnya.
-* **Tipe:** `Flat File Source`
 * **Sumber:** Data berasal dari sebuah file teks yang berfungsi sebagai sumber utama untuk dimensi waktu. File ini berisi satu baris untuk setiap tanggal beserta atribut-atributnya.
 * **Kolom:** Kolom yang dibaca antara lain `date`, `day`, `month`, `year`, `isWeekend`, dan `nama_hari`.
 
 ![Data Sumber dari Flat File Kalender](img/waktu-flat-file-source.png)
 
 #### 2. Data Conversion
-Langkah ini sangat penting untuk memastikan integritas dan tipe data yang benar sebelum dimuat ke database.
-* **Tujuan:** Mengonversi setiap kolom dari format teks (string) menjadi tipe data database yang sesuai.
+Langkah bertujuan untuk memastikan integritas dan tipe data yang benar sebelum dimuat ke database.
 
 ![Konversi Tipe Data untuk Setiap Kolom](img/waktu-data-conversion.png)
 
 #### 3. Lookup
-Ini adalah langkah kontrol kualitas untuk mencegah duplikasi data.
 * **Tujuan:** Memeriksa apakah tanggal dari file sumber sudah ada di dalam tabel `dbo.dimensi_waktu`.
 * **Logika:**
     * Dilakukan pencarian (lookup) ke tabel tujuan dengan mencocokkan kolom `date`.
@@ -36,7 +31,6 @@ Ini adalah langkah kontrol kualitas untuk mencegah duplikasi data.
 
 #### 4. OLE DB Destination
 Langkah terakhir adalah memuat data tanggal yang baru dan unik ke dalam tabel data warehouse.
-* **Tujuan:** Memasukkan baris data baru ke dalam tabel `dbo.dimensi_waktu`.
 * **Pemetaan (Mappings):**
     * Semua kolom yang telah dikonversi dari alur data (`Copy of date`, `Copy of day`, dll.) dipetakan ke kolom yang bersesuaian di tabel tujuan.
     * Kolom `date_id` akan di-generate secara otomatis oleh database.
