@@ -44,7 +44,7 @@ Setelah data disatukan, data tersebut diperkaya dengan informasi yang telah disi
 Pada tahap ini data diolah menjadi informasi yang lebih bermakna.
 * **1. Script Component:**
     * Sebuah **Script Component** digunakan untuk melakukan perhitungan kompleks yang tidak dapat ditangani oleh komponen SSIS standar. Script ini menghitung nilai **RSI** dan **Moving Average 7 Hari (MA7)** untuk setiap baris data.
-    * **Catatan:** Kode untuk script ini dapat dilihat di file: `../script/CalculateIndicators.cs`.
+    * **Catatan:** Kode untuk script ini dapat dilihat di file [berikut](../script/CalculateIndicators.cs).
 * **2. Derived Column (Kategorisasi):**
     * Berdasarkan hasil dari Script Component dan data yang sudah ada, beberapa kolom turunan baru dibuat untuk tujuan analisis dan lookup ke dimensi:
         * `rsi_category`: Mengklasifikasikan nilai RSI (misal: `< 30` menjadi 'Oversold').
